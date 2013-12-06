@@ -15,7 +15,7 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		protected $id;
 		
 		/**
-		 * @Column(type="string")
+		 * @Column(type="string", length=255)
 		 */
 		protected $description;
 		
@@ -25,7 +25,7 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		protected $created;
 		
 		/**
-		 * @Column(type="string")
+		 * @Column(type="string", length=128)
 		 */
 		protected $status;
 

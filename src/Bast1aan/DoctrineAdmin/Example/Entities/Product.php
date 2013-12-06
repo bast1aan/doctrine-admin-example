@@ -10,7 +10,7 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		/** @Id @Column(type="integer") @GeneratedValue */
 		protected $id;
 
-		/** @Column(type="string") */
+		/** @Column(type="string", length=255) */
 		protected $name;
 
 		public function getId()

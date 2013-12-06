@@ -16,7 +16,7 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		protected $id;
 
 		/**
-		 * @Column(type="string")
+		 * @Column(type="string", length=255)
 		 * @var string
 		 */
 		protected $name;
