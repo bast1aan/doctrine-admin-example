@@ -1,25 +1,12 @@
 <?php
-require_once(__DIR__ . '/../lib/src/Bast1aan/DoctrineAdmin/Config.php');
+//require_once(__DIR__ . '/../lib/src/Bast1aan/DoctrineAdmin/Config.php');
 use Bast1aan\DoctrineAdmin\DoctrineAdmin;
-use Bast1aan\DoctrineAdmin\Entity;
-use Bast1aan\DoctrineAdmin\Config as DoctrineAdminConfig;
-use Bast1aan\DoctrineAdmin\Example\DoctrineAdminEntities;
-
-class Config implements DoctrineAdminConfig {
-	public function getDoctrineAdminEntityByNativeEntity($entity) {
-		if ($entity instanceof Bast1aan\DoctrineAdmin\Example\Entities\Bug) {
-			return new DoctrineAdminEntities\Bug($entity);
-		} elseif ($entity instanceof Bast1aan\DoctrineAdmin\Example\Entities\User) {
-			return new DoctrineAdminEntities\User($entity);			
-		}
-
-	}
-}
+use Bast1aan\DoctrineAdmin\Example;
 
 require '../bootstrap.php';
 
 $da = new DoctrineAdmin(entityManager());
-$da->setConfig(new Config());
+$da->setConfig(new Example\Config());
 
 $entities = $da->getCollection('Bast1aan\DoctrineAdmin\Example\Entities\Bug');
 
