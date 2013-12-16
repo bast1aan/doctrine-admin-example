@@ -1,13 +1,13 @@
 <?php
 
-namespace Bast1aan\DoctrineAdmin\Example\DoctrineAdminEntities {
+namespace Bast1aan\DoctrineAdmin\Example\DoctrineAdmin {
 	use Bast1aan\DoctrineAdmin\Entity;
 	
-	class User extends Entity {
+	class ProductEntity extends Entity {
 		
 		/**
 		 * 
-		 * @return \Bast1aan\DoctrineAdmin\Example\Entities\User
+		 * @return \Bast1aan\DoctrineAdmin\Example\Entities\Product
 		 */
 		public function getOriginalEntity() {
 			return parent::getOriginalEntity();

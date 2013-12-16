@@ -1,10 +1,10 @@
 <?php
 
-namespace Bast1aan\DoctrineAdmin\Example {
+namespace Bast1aan\DoctrineAdmin\Example\DoctrineAdmin {
 	
 	use Bast1aan\DoctrineAdmin\Config as DoctrineAdminConfig;
 	use Bast1aan\DoctrineAdmin\Example\Entities;
-	use Bast1aan\DoctrineAdmin\Example\DoctrineAdminEntities;
+	use Bast1aan\DoctrineAdmin\Example\DoctrineAdmin;
 	
 	/**
 	 * Config class that maps our native entities to DoctrineAdmin entities
@@ -17,11 +17,11 @@ namespace Bast1aan\DoctrineAdmin\Example {
 		 */
 		public function getDoctrineAdminEntityByNativeEntity($entity) {
 			if ($entity instanceof Entities\Bug) {
-				return new DoctrineAdminEntities\Bug($entity);
+				return new DoctrineAdmin\BugEntity($entity);
 			} elseif ($entity instanceof Entities\User) {
-				return new DoctrineAdminEntities\User($entity);			
+				return new DoctrineAdmin\UserEntity($entity);			
 			} elseif ($entity instanceof Entities\Product) {
-				return new DoctrineAdminEntities\Product($entity);
+				return new DoctrineAdmin\ProductEntity($entity);
 			}
 		}
 	}

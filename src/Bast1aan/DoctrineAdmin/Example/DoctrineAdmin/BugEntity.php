@@ -1,13 +1,13 @@
 <?php
 
-namespace Bast1aan\DoctrineAdmin\Example\DoctrineAdminEntities {
+namespace Bast1aan\DoctrineAdmin\Example\DoctrineAdmin {
 	use Bast1aan\DoctrineAdmin\Entity;
 	
-	class Product extends Entity {
+	class BugEntity extends Entity {
 		
 		/**
 		 * 
-		 * @return \Bast1aan\DoctrineAdmin\Example\Entities\Product
+		 * @return \Bast1aan\DoctrineAdmin\Example\Entities\Bug
 		 */
 		public function getOriginalEntity() {
 			return parent::getOriginalEntity();
@@ -15,7 +15,7 @@ namespace Bast1aan\DoctrineAdmin\Example\DoctrineAdminEntities {
 		
 		public function __toString() {
 			$e = $this->getOriginalEntity();
-			return $e->getName() . ' (' . $e->getId() . ')';
+			return $e->getDescription() . ' (' . $e->getId() . ')';
 		}
 	}
 }

@@ -11,7 +11,7 @@ $em = entityManager();
 
 $da = new DoctrineAdmin($em);
 
-$da->setConfig(new Example\Config());
+$da->setConfig(new Example\DoctrineAdmin\Config());
 
 $entityName = $_REQUEST['entity_name'];
 $entityId = $_REQUEST['entity_id'];
@@ -27,9 +27,10 @@ if ($entity instanceof Entity) {
 	if (!empty($_POST['submit'])) {
 		try {
 			$form->populate($_POST);
-			$em->flush();
+			$form->save();
 			?><span class="success">Successfully saved entity</span><?php
 		} catch(Exception $e) {
+			print $e->getMessage(); print $e->getTraceAsString();exit;
 			?><span class="error">Error: <?php print $e->getMessage(); ?></span><?php
 		}
 	}
