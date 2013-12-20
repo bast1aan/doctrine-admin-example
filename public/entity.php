@@ -20,6 +20,7 @@ $entity = $da->find($entityName, $entityId);
 
 ?>
 <html>
+	<head><script type="text/javascript" src="js/doctrine_admin.js"></script></head>
 	<body>
 <?php
 if ($entity instanceof Entity) {
