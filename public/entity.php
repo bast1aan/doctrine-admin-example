@@ -37,7 +37,7 @@ if ($entity instanceof Entity) {
 	?><form action="entity.php" method="post">
 	<input type="hidden" name="entity_name" value="<?php print htmlentities($entityName) ?>" />
 	<input type="hidden" name="entity_id" value="<?php print htmlentities($entityId) ?>" />
-	<?php print $form ?>
+	<?php print $form->render() ?>
 	<input type="submit" name="submit" value="Submit" />
 	</form>
 	<?php
