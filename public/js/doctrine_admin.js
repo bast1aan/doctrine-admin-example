@@ -66,7 +66,6 @@ var onLoadFunctions = [
 						if (correctInputs[j].name == name) {
 							if (e.currentTarget.checked) {
 								correctInputs[j].disabled = true;
-								correctInputs[j].value = '';
 							} else {
 								correctInputs[j].disabled = false;
 							}
