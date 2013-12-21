@@ -3,6 +3,7 @@
 // onload stack
 var onLoadFunctions = [
 	function() {
+		// handle entity names
 		var trs = document.getElementsByTagName('tr');
 		for(var i = 0; i < trs.length; ++i) {
 			if (trs[i].classList.contains('target_entity')) {
@@ -28,6 +29,50 @@ var onLoadFunctions = [
 							targetEntityId + "\">" +
 							spans[j].innerHTML +
 							"</a>";
+					}
+				}
+			}
+		}
+	},
+	function() {
+		// handle is_null items; automaticly disable and empty fields
+
+		var trs = document.getElementsByTagName('tr');
+		var isNullCheckBoxes = {};
+		for(var i = 0; i < trs.length; ++i) {
+			var inputs = trs[i].getElementsByTagName('input');
+
+			var j;
+			var isNullCheckbox;
+			var otherInputs = [];
+			for (j = 0; j < inputs.length; ++j) {
+
+				if (inputs[j].name.substr(0, 7) == 'is_null') {
+					isNullCheckbox = inputs[j];
+					var name = isNullCheckbox.name.substr(8, isNullCheckbox.name.length - 9);
+					isNullCheckBoxes[name] = isNullCheckbox;
+				} else {
+					otherInputs.push(inputs[j]);
+				}
+			}
+			if (isNullCheckbox) {
+				for(j = 0; j < otherInputs.length; ++j) {
+					var currentInput = otherInputs[j];
+					currentInput.onchange = function(e) {
+						var isNull = isNullCheckBoxes[e.currentTarget.name];
+						if (e.currentTarget.value.trim().length > 0 && isNull.checked) {
+							isNull.checked = false;
+						}
+					}
+				}
+				isNullCheckbox.onchange = function(e) {
+					if (e.currentTarget.checked) {
+						var correctInputs = document.getElementsByTagName('input');
+						var name = e.currentTarget.name.substr(8, e.currentTarget.name.length - 9);
+						for(j = 0; j < correctInputs.length; ++j) {
+							if (correctInputs[j].name == name)
+								correctInputs[j].value = '';
+						}
 					}
 				}
 			}
