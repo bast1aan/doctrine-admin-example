@@ -42,7 +42,7 @@ var onLoadFunctions = [
 			var inputs = trs[i].getElementsByTagName('input');
 
 			var j;
-			var isNullCheckbox;
+			var isNullCheckbox = null;
 			var otherInputs = [];
 			for (j = 0; j < inputs.length; ++j) {
 
