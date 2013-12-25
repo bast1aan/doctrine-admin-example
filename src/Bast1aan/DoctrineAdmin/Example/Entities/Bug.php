@@ -15,7 +15,7 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		protected $id;
 		
 		/**
-		 * @Column(type="string", length=255)
+		 * @Column(type="string", length=255, nullable=true)
 		 */
 		protected $description;
 		
@@ -30,7 +30,13 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		protected $status;
 
 		/**
+		 * @Column(type="datetime", nullable=true)
+		 */
+		protected $fixed;
+
+		/**
 		 * @ManyToOne(targetEntity="User", inversedBy="assignedBugs")
+		 * @JoinColumn(name="engineer_id", nullable=true)
 		 */
 		protected $engineer;
 
@@ -40,7 +46,7 @@ namespace Bast1aan\DoctrineAdmin\Example\Entities {
 		protected $reporter;
 
 		/**
-		 * @ManyToMany(targetEntity="Product")
+		 * @ManyToMany(targetEntity="Product", inversedBy="bugs")
 		 */
 		protected $products;
 
