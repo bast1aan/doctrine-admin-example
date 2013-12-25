@@ -35,7 +35,7 @@ var onLoadFunctions = [
 		}
 	},
 	function() {
-		// handle is_null items; automaticly disable and empty fields
+		// handle is_null items; automaticly disable fields
 
 		var trs = document.getElementsByTagName('tr');
 		for(var i = 0; i < trs.length; ++i) {
