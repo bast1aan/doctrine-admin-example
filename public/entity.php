@@ -1,17 +1,13 @@
 <?php
 
-use Bast1aan\DoctrineAdmin\DoctrineAdmin;
+use Bast1aan\DoctrineAdmin\Example\DoctrineAdmin\MyDoctrineAdmin;
 use Bast1aan\DoctrineAdmin\Entity;
-use Bast1aan\DoctrineAdmin\View\Form;
-use Bast1aan\DoctrineAdmin\Example;
 
 require_once('../bootstrap.php');
 
 $em = entityManager();
 
-$da = new DoctrineAdmin($em);
-
-$da->setConfig(new Example\DoctrineAdmin\Config());
+$da = new MyDoctrineAdmin($em);
 
 $entityName = $_REQUEST['entity_name'];
 $entityId = $_REQUEST['entity_id'];
@@ -24,13 +20,13 @@ $entity = $da->find($entityName, $entityId);
 	<body>
 <?php
 if ($entity instanceof Entity) {
-	$form = $entity->getView()->getForm();
+	$form = $entity->getForm();
 	if (!empty($_POST['submit'])) {
 		try {
 			$form->populate($_POST);
 			$form->save();
 			?><span class="success">Successfully saved entity</span><?php
-		} catch(Exception $e) {
+		} catch(PDOException $e) {
 			print $e->getMessage(); print $e->getTraceAsString();exit;
 			?><span class="error">Error: <?php print $e->getMessage(); ?></span><?php
 		}
