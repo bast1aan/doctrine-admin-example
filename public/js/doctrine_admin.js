@@ -4,7 +4,7 @@
 var onLoadFunctions = [
 	function() {
 		// handle entity names
-		var trs = document.getElementsByTagName('tr');
+		var trs = document.getElementsByTagName('*');
 		for(var i = 0; i < trs.length; ++i) {
 			if (trs[i].classList.contains('target_entity')) {
 				var j;
